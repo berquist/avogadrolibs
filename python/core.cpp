@@ -1,4 +1,6 @@
+#include <pybind11/eigen.h>
 #include <pybind11/pybind11.h>
+#include <pybind11/stl.h>
 
 #include <avogadro/core/cube.h>
 #include <avogadro/core/gaussiansettools.h>
@@ -31,9 +33,42 @@ PYBIND11_MODULE(core, m)
     .def("atom1", &Bond::atom1, "The first atom")
     .def("atom2", &Bond::atom2, "The second atom");
 
+  py::enum_<Cube::Type>(m, "CubeType")
+    .value("VdW", Cube::Type::VdW)
+    .value("ESP", Cube::Type::ESP)
+    .value("ElectronDensity", Cube::Type::ElectronDensity)
+    .value("MO", Cube::Type::MO)
+    .value("FromFile", Cube::Type::FromFile)
+    .value("None", Cube::Type::None);
+
   bool (Cube::*setLimits0)(const Molecule&, float, float) = &Cube::setLimits;
-  py::class_<Cube>(m, "Cube").def(
-    "set_limits", setLimits0, "Set the limits based on the molecule geometry");
+  py::class_<Cube>(m, "Cube")
+    .def(py::init<>())
+    .def("min_point", &Cube::min, "Minimum point in the cube")
+    .def("max_point", &Cube::max, "Maximum point in the cube")
+    .def("spacing", &Cube::spacing, "Spacing of the grid")
+    .def("dimensions", &Cube::dimensions, "x, y, z dimensions")
+    .def("set_limits", setLimits0,
+         "Set the limits based on the molecule geometry")
+    .def_property(
+      "data",
+      static_cast<const std::vector<float>* (Cube::*)() const>(&Cube::data),
+      &Cube::setData)
+    .def("__add__", &Cube::addData)
+    .def("closest_index", &Cube::closestIndex,
+         "Linear index of the point closest to the given position",
+         py::arg("pos"))
+    .def("index_vector", &Cube::indexVector,
+         "i,j,k index of the point closest to the given position",
+         py::arg("pos"))
+    .def("position", &Cube::position)
+    .def("fill", &Cube::fill)
+    .def("fill_stripe", &Cube::fill)
+    .def("min_value", &Cube::min, "Minimum value in the cube")
+    .def("max_value", &Cube::max, "Maximum value in the cube")
+    .def_property("name", &Cube::name, &Cube::setName, "Name of the cube")
+    .def_property("type", &Cube::cubeType, &Cube::setCubeType,
+                  "Type of the cube");
 
   Index (Molecule::*atomCount0)() const = &Molecule::atomCount;
   Index (Molecule::*atomCount1)(unsigned char) const = &Molecule::atomCount;
