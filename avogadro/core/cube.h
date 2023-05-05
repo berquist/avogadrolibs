@@ -212,12 +212,12 @@ public:
   );
 
   /**
-   * @return The minimum  value at any point in the Cube.
+   * @return The minimum value at any point in the Cube.
    */
   float minValue() const { return m_minValue; }
 
   /**
-   * @return The maximum  value at any point in the Cube.
+   * @return The maximum value at any point in the Cube.
    */
   float maxValue() const { return m_maxValue; }
 
