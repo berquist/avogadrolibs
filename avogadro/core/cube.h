@@ -131,8 +131,8 @@ public:
   bool addData(const std::vector<float>& values);
 
   /**
-   * @return Index of the point closest to the position supplied.
    * @param pos Position to get closest index for.
+   * @return Index of the point closest to the position supplied.
    */
   unsigned int closestIndex(const Vector3& pos) const;
 
