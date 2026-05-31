@@ -77,6 +77,7 @@ void Spectra::setMolecule(QtGui::Molecule* mol)
 
 void Spectra::moleculeChanged(unsigned int changes)
 {
+  AVO_UNUSED(changes);
   if (m_molecule == nullptr)
     return;
 

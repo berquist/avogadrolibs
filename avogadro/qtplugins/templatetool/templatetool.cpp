@@ -193,6 +193,7 @@ QUndoCommand* TemplateTool::mouseReleaseEvent(QMouseEvent* e)
 
 QUndoCommand* TemplateTool::mouseMoveEvent(QMouseEvent* e)
 {
+  AVO_UNUSED(e);
   return nullptr;
 }
 

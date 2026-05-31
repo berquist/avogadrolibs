@@ -319,6 +319,7 @@ TEST_F(AngleGradientTest, NearLinear179Degrees)
 
   Vector3 aGrad, bGrad, cGrad;
   Real angle = angleGradient(a, b, c, aGrad, bGrad, cGrad);
+  AVO_UNUSED(angle);
 
   checkGradientsValid(aGrad, bGrad, cGrad);
   compareWithNumerical(a, b, c);
@@ -332,6 +333,7 @@ TEST_F(AngleGradientTest, NearZero1Degree)
 
   Vector3 aGrad, bGrad, cGrad;
   Real angle = angleGradient(a, b, c, aGrad, bGrad, cGrad);
+  AVO_UNUSED(angle);
 
   checkGradientsValid(aGrad, bGrad, cGrad);
 }

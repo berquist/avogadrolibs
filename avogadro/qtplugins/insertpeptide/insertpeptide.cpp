@@ -68,6 +68,7 @@ QList<QAction*> InsertPeptide::actions() const
 
 QStringList InsertPeptide::menuPath(QAction* action) const
 {
+  AVO_UNUSED(action);
   return QStringList() << tr("&Build") << tr("&Insert");
 }
 

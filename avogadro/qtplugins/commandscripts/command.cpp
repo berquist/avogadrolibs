@@ -508,6 +508,9 @@ void Command::registerFeature(const QString& type, const QString& packageDir,
   int menuPriority = priorities.size() > 0 ? priorities[0].toInt() : 0;
   int subMenuPriority = priorities.size() > 1 ? priorities[1].toInt() : 0;
   int subSubMenuPriority = priorities.size() > 2 ? priorities[2].toInt() : 0;
+  AVO_UNUSED(menuPriority);
+  AVO_UNUSED(subMenuPriority);
+  AVO_UNUSED(subSubMenuPriority);
 
   // Create the action
   auto* action = new QAction(item, this);

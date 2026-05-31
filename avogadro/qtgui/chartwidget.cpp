@@ -5,6 +5,8 @@
 
 #include "chartwidget.h"
 
+#include <avogadro/core/avogadrocore.h>
+
 #include <jkqtplotter/jkqtplotter.h>
 #include <jkqtplotter/graphs/jkqtplines.h>
 
@@ -206,6 +208,7 @@ void ChartWidget::plotClicked(double x, double y,
                               Qt::KeyboardModifiers modifiers,
                               Qt::MouseButton button)
 {
+  AVO_UNUSED(button);
   emit clicked(x, y, modifiers);
 }
 
@@ -355,6 +358,9 @@ void ChartWidget::setAxisDigits(Axis a, int digits)
 
 void ChartWidget::labelPeaks(int yColumn, float threshold, int window)
 {
+  AVO_UNUSED(yColumn);
+  AVO_UNUSED(threshold);
+  AVO_UNUSED(window);
   std::vector<std::pair<float, float>> peaks;
 
   /*  auto& x = m_impl->plot->getDatastore()->getColumn(0);

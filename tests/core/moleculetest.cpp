@@ -414,6 +414,8 @@ TEST_F(MoleculeTest, estimateVelocities)
   Molecule molecule;
   Atom a1 = molecule.addAtom(1);
   Atom a2 = molecule.addAtom(1);
+  AVO_UNUSED(a1);
+  AVO_UNUSED(a2);
 
   Array<Vector3> coords0;
   coords0.push_back(Vector3(0.0, 0.0, 0.0));

@@ -5,6 +5,7 @@
 
 #include "packagemodel.h"
 
+#include <avogadro/core/avogadrocore.h>
 #include <avogadro/core/version.h>
 #include <avogadro/qtgui/packagemanager.h>
 
@@ -128,6 +129,8 @@ QVariant PackageModel::data(const QModelIndex& index, int role) const
 bool PackageModel::setData(const QModelIndex& index, const QVariant& value,
                            int role)
 {
+  AVO_UNUSED(value);
+  AVO_UNUSED(role);
   if (!index.isValid() || index.row() >= m_entries.size())
     return false;
 

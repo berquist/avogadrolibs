@@ -104,6 +104,8 @@ void PlotConformer::updateActions()
 
 void PlotConformer::clicked(float x, float y, Qt::KeyboardModifiers modifiers)
 {
+  AVO_UNUSED(y);
+  AVO_UNUSED(modifiers);
   // switch to the closest conformer to x
   int conformer = static_cast<int>(x);
   if (conformer < 0)

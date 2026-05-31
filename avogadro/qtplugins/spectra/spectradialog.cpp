@@ -264,6 +264,7 @@ void SpectraDialog::changeEvent(QEvent* event)
 
 void SpectraDialog::mouseDoubleClickEvent(QMouseEvent* e)
 {
+  AVO_UNUSED(e);
   auto* chart = chartWidget();
   if (chart)
     chart->resetZoom();

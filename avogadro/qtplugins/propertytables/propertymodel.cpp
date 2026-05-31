@@ -905,6 +905,7 @@ bool PropertyModel::setData(const QModelIndex& index, const QVariant& value,
       case BondDataLength: {
         bool ok;
         double length = value.toDouble(&ok);
+        AVO_UNUSED(length);
         if (ok) {
           setBondLength(index.row(), value.toDouble());
         }
@@ -1214,6 +1215,7 @@ QString PropertyModel::secStructure(unsigned int type) const
 
 void PropertyModel::updateTable(unsigned int flags)
 {
+  AVO_UNUSED(flags);
   // During animation/vibration, coordinates change rapidly but the table
   // structure (number of atoms, bonds, etc.) remains the same. We can skip
   // updates when only coordinates changed (Atoms flag without Added/Removed).

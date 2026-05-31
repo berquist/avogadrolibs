@@ -784,6 +784,7 @@ TEST(UnitCellTest, Distance_Hexagonal)
   Vector3 v2(a, 0.0, 0.0);
 
   Real dist = hexagonal.distance(v1, v2);
+  AVO_UNUSED(dist);
   // FIXME:
   // EXPECT_NEAR(a, dist, 1e-4);
 }

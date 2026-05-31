@@ -338,12 +338,14 @@ void gridF7(const Avogadro::Core::ShellInfo& shell, int mo,
         double exy = exi * ey[j - jmin];
         double dyj = dy[j], dyj2 = dyj * dyj, dyj3 = dyj2 * dyj;
         double xy2sum = dxi2 + dyj2;
+        AVO_UNUSED(xy2sum);
         // k-independent: f5 and f6
         double f5 = (15.0 * dxi3 - 45.0 * dxi * dyj2) / root360;
         double f6 = (45.0 * dxi2 * dyj - 15.0 * dyj3) / root360;
         double ij_only = c[5] * f5 + c[6] * f6;
         // dz^1 coefficients
         double dz1_a = -1.5 * xy2sum; // for f0: dz*(dz2 + dz1_a)
+        AVO_UNUSED(dz1_a);
         double dz1_f3 = 15.0 * (dxi2 - dyj2) / root60;
         double dz1_f4 = 30.0 * dxi * dyj / root60;
         double dz1_coeff = c[3] * dz1_f3 + c[4] * dz1_f4;

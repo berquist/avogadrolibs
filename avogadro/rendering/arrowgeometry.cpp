@@ -189,6 +189,7 @@ void generateArrowGeometry(const Vector3f& origin, const Vector3f& target,
 
   // Add vertices to output array
   size_t vertexStart = vertices.size();
+  AVO_UNUSED(vertexStart);
   for (unsigned int i = 0; i < numVertices; ++i) {
     vertices.push_back(PackedVertex(color, norms[i], verts[i]));
   }

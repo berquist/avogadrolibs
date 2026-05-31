@@ -113,6 +113,8 @@ inline Real dihedralGradient(const Vector3& i, const Vector3& j,
 
   Real sinPhi = sin(phi);
   Real cosPhi = cos(phi);
+  AVO_UNUSED(sinPhi);
+  AVO_UNUSED(cosPhi);
 
   // Using the BallView / Open Babel formula
   // https://doi.org/10.22028/D291-25896 (Appendix A)

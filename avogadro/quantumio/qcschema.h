@@ -47,6 +47,8 @@ public:
                            const Core::Molecule& molecule) override
   {
     // Empty, as we do not currently write QC_SCHEMA files.
+    AVO_UNUSED(out);
+    AVO_UNUSED(molecule);
     return false;
   }
 };
